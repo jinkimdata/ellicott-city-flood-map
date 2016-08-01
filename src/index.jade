@@ -1,5 +1,5 @@
 - var datalink = "http://data.baltimoresun.com/news/ellicott-city-flood-map/"
-- var datalink = ""
+//- var datalink = ""
 
 include includes/timeline.jade
 
@@ -15,26 +15,27 @@ html(class="no-js", lang="en")
 		//Basic page needs
 		meta(charset="utf-8")
 		title Ellicott City Flood Timeline
-		meta(name="description", content="")
+		meta(name="description", content="See how Ellicott City's once-in-a-millenium flood unfolded in this interactive map.")
 		meta(name="author", content="Jin Bae Kim") 
 		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
 		link(rel="stylesheet", type="text/css", href="#{datalink}css/style.css")
 		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Old+Standard+TT|Lato|Montserrat")
+		link(rel="stylesheet", type="text/css", href="#{datalink}fontello/css/fontello.css")
 
 		//Facebook Stuff
-		meta(property="og:title", content="")
-		meta(property="og:url", content="")
-		meta(property="og:image", content="")
+		meta(property="og:title", content="Ellicott City Flood Timeline")
+		meta(property="og:url", content="http://data.baltimoresun.com/news/ellicott-city-flood-map/")
+		meta(property="og:image", content="http://data.baltimoresun.com/news/ellicott-city-flood-map/images/thumb.png")
 		meta(property="og:site_name", content="The Baltimore Sun")
-		meta(property="og:description", content="")
+		meta(property="og:description", content="See how Ellicott City's once-in-a-millenium flood unfolded in this interactive map.")
 		meta(property="fb:app_id", content="310302989040998")
 		//Twitter Stuff
 		meta(name="twitter:card", content="summary")
 		meta(name="twitter:site", content="@baltimoresun")
-		meta(name="twitter:creator", content="")
-		meta(name="twitter:title", content="")
-		meta(name="twitter:description", content="")
-		meta(name="twitter:image", content="")
+		meta(name="twitter:creator", content="@baltsundata")
+		meta(name="twitter:title", content="Ellicott City Flood Timeline")
+		meta(name="twitter:description", content="See how Ellicott City's once-in-a-millenium flood unfolded in this interactive map.")
+		meta(name="twitter:image", content="http://data.baltimoresun.com/news/ellicott-city-flood-map/images/thumb.png")
 		meta(name="twitter:domain", content="baltimoresun.com")
 
 		script(src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.11.4/mapbox-gl.js')
@@ -46,8 +47,6 @@ html(class="no-js", lang="en")
 		
 		.container
 			#wrapper
-				a(href='http://www.baltimoresun.com/news/maryland/howard/ellicott-city/bs-md-ellicott-city-flood-20160731-story.html', target='_blank')
-					#share Read the full story
 				#map
 				#features
 					a(name="cover")
@@ -60,32 +59,42 @@ html(class="no-js", lang="en")
 					each event, i in timeline
 						a(name="#{i}")
 						section(id="slide#{i}")
+							p.date #{event.date}
 							h3 #{event.timestamp}
 							p #{event.text}
 							if event.video
 								p
-									a(href="#{event.video}") See video
+									a(href="#{event.video}" target="_blank" rel="noopener") See video
+							if event.article
+								p
+									a(href="#{event.article}" target="_blank" rel="noopener") Read more
 							small.scroll
 								.next
 									a(href='##{i+1}') Next ↓
 					a(name="13")
 					section(id="slide13")
-						h3 Credits
+						i.icon-twitter
+						i.icon-facebook
+						p 
+							a(href="http://www.baltimoresun.com/news/maryland/howard/ellicott-city/bal-coverage-2016-ellicott-city-flood-20160731-storygallery.html" target="_blank" rel="noopener") View more coverage 
+							| from The Baltimore Sun
 						p Mapping codebase by 
-							a(href="http://codepen.io/joe-rayment/") Joe Rayment
+							a(href="http://codepen.io/joe-rayment/" target="_blank" rel="noopener") Joe Rayment
 						p Adapted by 
-							a(href="https://twitter.com/kim_jin_bae") Jin Bae Kim
+							a(href="https://twitter.com/kim_jin_bae" target="_blank" rel="noopener") Jin Bae Kim
 						p
-							a(href="http://www.baltimoresun.com/news/data/") baltsundata
-						
+							a(href="http://www.baltimoresun.com/news/data/" target="_blank" rel="noopener") baltsundata
+						small.scroll
+							.next
+								a(href='#0') Back to top &uarr;						
 
 		//- #leaderboard			
 		//- 	include includes/ad-for-body.html
 		
 		//Javascript
-		script(src="#{datalink}js/min/jquery-3.0.0.min.js")
-		script(src="#{datalink}js/app.js")
-		//- script(src="#{datalink}js/app.min.js")
+		//- script(src="#{datalink}js/min/jquery-3.0.0.min.js")
+		//- script(src="#{datalink}js/app.js")
+		script(src="#{datalink}js/app.min.js")
 
 		//- include includes/ad-for-header.html
 

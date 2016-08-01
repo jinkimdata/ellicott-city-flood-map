@@ -1,6 +1,26 @@
-var dataproject = {
+var ellicottCityFloodMap = {
 	init: function(){
-		//dataproject.share();
+		ellicottCityFloodMap.mapFunctions();
+		ellicottCityFloodMap.share();
+	},
+	share: function(){
+		$(".icon-twitter").on("click", function(){
+			var tweet = "See how Ellicott City's once-in-a-millenium flood unfolded in this interactive map."; //Tweet text
+			var url = "http://data.baltimoresun.com/news/ellicott-city-flood-map/"; //Interactive URL
+			var twitter_url = "https://twitter.com/intent/tweet?text="+tweet+"&url="+url+"&tw_p=tweetbutton";
+			window.open(twitter_url, 'mywin','left=200,top=200,width=500,height=300,toolbar=1,resizable=0'); return false;
+		});
+		$(".icon-facebook").on("click", function(){
+			var picture = "http://data.baltimoresun.com/news/ellicott-city-flood-map/images/thumb.png"; //Picture URL
+			var title = "Ellicott City Flood Timeline"; //Post title
+			var description = "See how Ellicott City's once-in-a-millenium flood unfolded in this interactive map."; //Post description
+			var url = "http://data.baltimoresun.com/news/ellicott-city-flood-map/"; //Interactive URL
+			var facebook_url = "https://www.facebook.com/dialog/feed?display=popup&app_id=310302989040998&link="+url+"&picture="+picture+"&name="+title+"&description="+description+"&redirect_uri=http://www.facebook.com";				
+			window.open(facebook_url, 'mywin','left=200,top=200,width=500,height=300,toolbar=1,resizable=0'); return false;
+		});
+	},
+	mapFunctions: function() {
+		// From http://codepen.io/joe-rayment/pen/JGPmdo
 		mapboxgl.accessToken = 'pk.eyJ1IjoibmF0aW9uYWxwb3N0IiwiYSI6IjBkZWVjZjhjZjg0NzAwNmEwYzk5ZWViYmFlNDA5NjkzIn0.y73QXFnGF8_91sSDBWvgHg';
 		
 		var map = new mapboxgl.Map({
@@ -13,7 +33,6 @@ var dataproject = {
 			interactive: false
 
 		});
-
 		var chapters = {
 			'slide0': {
 				bearing: 0,
@@ -116,7 +135,6 @@ var dataproject = {
 				duration: 4000
 			}
 		};
-
 		// On every scroll event, check which element is on screen
 		window.onscroll = function() {
 			var chapterNames = Object.keys(chapters);
@@ -128,9 +146,7 @@ var dataproject = {
 				}
 			}
 		};
-
 		var activeChapterName = 'cover';
-
 		function setActiveChapter(chapterName) {
 			if (chapterName === activeChapterName) return;
 
@@ -140,33 +156,16 @@ var dataproject = {
 			document.getElementById(activeChapterName).setAttribute('class', '');
 
 			activeChapterName = chapterName;
-		}
-
+		};
 		function isElementOnScreen(id) {
 			var element = document.getElementById(id);
 			var bounds = element.getBoundingClientRect();
 			return bounds.top < window.innerHeight && bounds.bottom > 0;
-		}
-	},
-	share: function(){
-		$(".icon-twitter").on("click", function(){
-			var tweet = ""; //Tweet text
-			var url = ""; //Interactive URL
-			var twitter_url = "https://twitter.com/intent/tweet?text="+tweet+"&url="+url+"&tw_p=tweetbutton";
-			window.open(twitter_url, 'mywin','left=200,top=200,width=500,height=300,toolbar=1,resizable=0'); return false;
-		});
-		$(".icon-facebook").on("click", function(){
-			var picture = ""; //Picture URL
-			var title = ""; //Post title
-			var description = ""; //Post description
-			var url = ""; //Interactive URL
-				var facebook_url = "https://www.facebook.com/dialog/feed?display=popup&app_id=310302989040998&link="+url+"&picture="+picture+"&name="+title+"&description="+description+"&redirect_uri=http://www.facebook.com";				
-			window.open(facebook_url, 'mywin','left=200,top=200,width=500,height=300,toolbar=1,resizable=0'); return false;
-		});
+		};
 	}
 }
 $(document).ready(function(){
-	dataproject.init();
+	ellicottCityFloodMap.init();
 	console.log("connected");
 });
 
