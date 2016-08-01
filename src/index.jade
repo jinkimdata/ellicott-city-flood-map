@@ -1,5 +1,7 @@
-- var datalink = "http://data.baltimoresun.com/PROJECTLINK/"
+- var datalink = "http://data.baltimoresun.com/news/ellicott-city-flood-map/"
 - var datalink = ""
+
+include includes/timeline.jade
 
 doctype html
 //if lt IE 7
@@ -12,10 +14,10 @@ html(class="no-js", lang="en")
 	head
 		//Basic page needs
 		meta(charset="utf-8")
-		title
+		title Ellicott City Flood Timeline
 		meta(name="description", content="")
 		meta(name="author", content="Jin Bae Kim") 
-		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
 		link(rel="stylesheet", type="text/css", href="#{datalink}css/style.css")
 		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Old+Standard+TT|Lato|Montserrat")
 
@@ -35,10 +37,47 @@ html(class="no-js", lang="en")
 		meta(name="twitter:image", content="")
 		meta(name="twitter:domain", content="baltimoresun.com")
 
+		script(src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.11.4/mapbox-gl.js')
+		link(href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.11.4/mapbox-gl.css', rel='stylesheet')
+
 	body
-		//- include includes/omniture.html
+
+		include includes/omniture.html
 		
 		.container
+			#wrapper
+				a(href='http://www.baltimoresun.com/news/maryland/howard/ellicott-city/bs-md-ellicott-city-flood-20160731-story.html', target='_blank')
+					#share Read the full story
+				#map
+				#features
+					a(name="cover")
+					section.active(id="cover")
+						h1 Ellicott City Flood Timeline
+						p
+						small.scroll
+							#first-button
+								a(href='#0') Next ↓
+					each event, i in timeline
+						a(name="#{i}")
+						section(id="slide#{i}")
+							h3 #{event.timestamp}
+							p #{event.text}
+							if event.video
+								p
+									a(href="#{event.video}") See video
+							small.scroll
+								.next
+									a(href='##{i+1}') Next ↓
+					a(name="13")
+					section(id="slide13")
+						h3 Credits
+						p Mapping codebase by 
+							a(href="http://codepen.io/joe-rayment/") Joe Rayment
+						p Adapted by 
+							a(href="https://twitter.com/kim_jin_bae") Jin Bae Kim
+						p
+							a(href="http://www.baltimoresun.com/news/data/") baltsundata
+						
 
 		//- #leaderboard			
 		//- 	include includes/ad-for-body.html
@@ -49,4 +88,4 @@ html(class="no-js", lang="en")
 		//- script(src="#{datalink}js/app.min.js")
 
 		//- include includes/ad-for-header.html
-	
+

@@ -8,7 +8,206 @@
 /* General Styles */
 
 // body
+body
+	margin: 0px
+	padding: 0px
+	font-family: $montserrat
+	background: #fff
+	font-size: 1rem 
+a
+	text-decoration: none 
+h1
+	font-size: 4em
+	line-height: 1.2em
+	/*font-family: Georgia, Times, 'Times New Roman', serif*/
+	margin-top: 2rem
+	margin-bottom: 2rem 
+h2
+	font-size: 1.3333em 
+h1, h2
+	margin: 0px 0px 10px
+h3
+	margin-top: 5px
+	margin-bottom: 2rem
+	font-size: 2.5rem
+p
+	margin-bottom: .5rem
+.container
+	margin-top: 50px
 
+.scroll
+	position: absolute
+	right: 0px
+	bottom: 0px
+	font-size: .8rem
+	font-family: $montserrat
+	font-weight: 900
+	text-transform: uppercase
+	padding: 5px 10px
+ 
+.scroll a
+	text-decoration: none
+	text-shadow: rgba(102, 102, 102, .9) 0px 0px 4px
+ 
+.next a
+	color: #999
+ 
+@media screen and (max-width: 750px)
+	.scroll
+		left: 0 
+#map
+	position: absolute
+	top: 0
+	bottom: 0
+	width: 100% 
+#map
+	position: fixed
+	width: 105%
+	overflow: hidden
+	padding-right: 20px
+#features
+	width: 29%
+	margin-left: 2rem
+	float: left
+	overflow-y: scroll
+	padding-top: 70px
+ 
+section
+	padding: 40px
+	position: relative
+	transition: background 500ms, color 500ms
+	-moz-transition: background 500ms, color 500ms
+	-webkit-transition: background 500ms, color 500ms
+	padding: 20px
+	color: rgba(0, 0, 0, 0)
+	-webkit-transition: background 500ms, color 500ms
+	transition: background 500ms, color 500ms
+	color: #333
+	color: rgba(192, 192, 192, 0)
+	text-decoration: none
+	text-shadow: rgba(102, 102, 102, .9) 0px 0px 4px
+	margin-bottom: 2rem 
+section a
+	color: #333
+	color: rgba(192, 192, 192, 0)
+	text-decoration: none
+	text-shadow: rgba(102, 102, 102, .9) 0px 0px 4px
+section.active
+	opacity: 1
+	background-color: #222
+	color: #eee 
+section.active a
+	color: $goldenrod 
+section:last-child
+	border-bottom: none
+	margin-bottom: 800px
+ /*	#mobile-fix, mobile-fix 
+		height:0
+		width:0
+		color:#ff*/
+ 
+@media screen and (max-width: 1080px)
+	#features
+		width: 40%
+		margin-left: .5rem
+ 
+@media screen and (max-width: 620px)
+	#features
+		width: 50%
+		margin-left: 0
+ 
+@media screen and (max-width: 1500px)
+	h1
+		font-size: 3.5rem
+ 
+@media screen and (max-width: 1330px)
+	h1
+		font-size: 3rem
+ 
+@media screen and (max-width: 1200px)
+	h1
+		font-size: 2.75rem
+ 
+@media screen and (max-width: 680px)
+	h1
+		font-size: 2rem
+ 
+@media screen and (max-width: 790px)
+	h1
+		font-size: 2rem
+ 
+@media screen and (max-width: 640px)
+	h1
+		font-size: 1.5rem
+	h3
+		1.2rem
+	body
+		font-size: .8rem
+	section.active
+		background-color: rgba(20,20,20, .6)
+ 
+@media screen and (max-width: 640px)
+	h1
+		font-size: 1.2rem
+ 
+@media screen and (max-width: 1200px)
+	h3
+		font-size: 1.5rem
+// @media screen and (max-width: 767px)
+// 	#wrapper
+// 		background-image:url("https://nationalpostcom.files.wordpress.com/2015/12/screen-shot-2015-12-02-at-10-26-54-pm-2-copy.jpg")
+// 		background-repeat: no-repeat
+// 		background-position: left 
+// 		position:absolute
+// 		z-index:999
+// 		width:100%
+// 		height:700px
+// 		overflow:hidden		
+// 	#ma
+// 		height:0
+// 		position:absolute
+// 	#feature
+// 		height:0
+// 		width:0		
+// 	#mobile-fix, mobile-fix 
+// 		height:100%
+// 		width:100%
+// 		z-index:1000
+// 		top:0
+// 	 left:0
+// 		color:#999
+// 		font-size:1.2rem
+// 		text-transform:uppercase 
+// 		font-weight:800
+// 		padding-left:.5rem
+
+.credits
+	position: absolute
+	bottom: 0
+	left: 0
+#share
+	position: absolute
+	z-index: 999
+	right: 0
+	top: 50px
+	background-color: $goldenrod
+	padding-top: .2rem
+	padding-right: .2rem
+	padding-left: .3rem
+	padding-bottom: .1rem
+	font-weight: 600
+	color: #1e1e1e
+	opacity: .8
+	font-family: $montserrat
+	font-size: .7rem
+	text-transform: uppercase
+ 
+#share a
+	text-decoration: none
+	color: #333
+ 
+#share a:hover
+	text-decoration: underline
 // .container
 
 /* Tophat */

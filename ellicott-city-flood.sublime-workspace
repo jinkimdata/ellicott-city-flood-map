@@ -1,0 +1,774 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"accentg",
+				"accentg"
+			],
+			[
+				"accentBl",
+				"accentcBL5"
+			],
+			[
+				"accent",
+				"accentcBD2"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"mobile",
+				"mobileCheck"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"cm",
+				"compileSass"
+			],
+			[
+				"compil",
+				"compileJade"
+			],
+			[
+				"comp",
+				"compileSass"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/index.jade",
+			"settings":
+			{
+				"buffer_size": 2200,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dist/index.html",
+			"settings":
+			{
+				"buffer_size": 1522,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 2228,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 10,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/includes/timeline.jade",
+			"settings":
+			{
+				"buffer_size": 757,
+				"line_ending": "Unix",
+				"name": "- var timelime = [{\"timestamp\":\"6:45:00 PM\",\"text\""
+			}
+		},
+		{
+			"contents": "var dataproject = {\n	init: function(){\n		//dataproject.share();\n	},\n	share: function(){\n		$(\".icon-twitter\").on(\"click\", function(){\n			var tweet = \"\"; //Tweet text\n			var url = \"\"; //Interactive URL\n			var twitter_url = \"https://twitter.com/intent/tweet?text=\"+tweet+\"&url=\"+url+\"&tw_p=tweetbutton\";\n			window.open(twitter_url, 'mywin','left=200,top=200,width=500,height=300,toolbar=1,resizable=0'); return false;\n		});\n		$(\".icon-facebook\").on(\"click\", function(){\n			var picture = \"\"; //Picture URL\n			var title = \"\"; //Post title\n			var description = \"\"; //Post description\n			var url = \"\"; //Interactive URL\n			var facebook_url = \"https://www.facebook.com/dialog/feed?display=popup&app_id=310302989040998&link=\"+url+\"&picture=\"+picture+\"&name=\"+title+\"&description=\"+description+\"&redirect_uri=http://www.facebook.com\";				\n			window.open(facebook_url, 'mywin','left=200,top=200,width=500,height=300,toolbar=1,resizable=0'); return false;\n		});\n	}\n}\n$(document).ready(function(){\n	dataproject.init();\n	console.log(\"connected\");\n});\n\nmapboxgl.accessToken = 'pk.eyJ1IjoibmF0aW9uYWxwb3N0IiwiYSI6IjBkZWVjZjhjZjg0NzAwNmEwYzk5ZWViYmFlNDA5NjkzIn0.y73QXFnGF8_91sSDBWvgHg';\n\nvar map = new mapboxgl.Map({\n	container: 'map',\n	style: 'mapbox://styles/nationalpost/cihpxfqzl002195lyrokri8u4',\n	center: [-71.084686, 50.591191],\n	zoom: 4.232,\n	bearing: 27,\n	pitch: 45,\n	interactive: false\n\n});\n\nvar chapters = {\n	'one': {\n		bearing: 0,\n		center: [-77.632, 49.753],\n		zoom: 13.9,\n		pitch: 15,\n		duration: 4000\n\n	},\n	'two': {\n		duration: 3500,\n		center: [-76.680, 50.417],\n		bearing: 0,\n		zoom: 10.4,\n		pitch: 8\n	},\n	'three': {\n		bearing: 90,\n		center: [-76.817, 50.436],\n		zoom: 11.45,\n		speed: 0.6,\n		pitch: 5\n	},\n	'four': {\n		bearing: 20,\n		center: [-76.378, 50.749],\n		zoom: 10,\n		duration: 3500\n	},\n	'five': {\n		bearing: -45,\n		pitch: 15,\n		center: [-76.516833, 50.597944],\n		zoom: 11.15,\n	},\n	'six': {\n		bearing: 40,\n		center: [-75.966825, 49.695525],\n		zoom: 13.9,\n		duration: 2000,\n		pitch: 60.00\n\n	},\n	'seven': {\n		bearing: 15,\n		pitch: 40,\n		center: [-72.222166, 48.516400],\n		zoom: 13.9,\n		duration: 2000\n	},\n	'eight': {\n		bearing: 90,\n		center: [-71.921, 49.883],\n		zoom: 13,\n		duration: 2000,\n		pitch: 15\n\n	},\n	'nine': {\n		bearing: 90,\n		center: [-71.741, 49.930],\n		zoom: 11.3,\n		speed: 0.6,\n		pitch: 10\n\n	},\n	'ten': {\n		bearing: 10,\n		center: [-72.232, 48.881],\n		zoom: 13.9,\n		speed: 0.6,\n		pitch: 30\n	},\n	'eleven': {\n		bearing: 90,\n		center: [-72.232, 48.575],\n		zoom: 13.9,\n		speed: 0.6,\n		pitch: 40\n	},\n	'twelve': {\n		bearing: -45,\n		center: [-73.556568, 45.496265],\n		zoom: 13.9,\n		speed: 0.6,\n		pitch: 5\n	},\n};\n\n// On every scroll event, check which element is on screen\nwindow.onscroll = function() {\n	var chapterNames = Object.keys(chapters);\n	for (var i = 0; i < chapterNames.length; i++) {\n		var chapterName = chapterNames[i];\n		if (isElementOnScreen(chapterName)) {\n			setActiveChapter(chapterName);\n			break;\n		}\n	}\n};\n\nvar activeChapterName = 'cover';\n\nfunction setActiveChapter(chapterName) {\n	if (chapterName === activeChapterName) return;\n\n	map.flyTo(chapters[chapterName]);\n\n	document.getElementById(chapterName).setAttribute('class', 'active');\n	document.getElementById(activeChapterName).setAttribute('class', '');\n\n	activeChapterName = chapterName;\n}\n\nfunction isElementOnScreen(id) {\n	var element = document.getElementById(id);\n	var bounds = element.getBoundingClientRect();\n	return bounds.top < window.innerHeight && bounds.bottom > 0;\n}",
+			"file": "src/js/javascript.js",
+			"file_size": 1042,
+			"file_write_time": 131094504090000000,
+			"settings":
+			{
+				"buffer_size": 3462,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/sass/style.sass",
+			"settings":
+			{
+				"buffer_size": 928,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/sass/_variables.sass",
+			"settings":
+			{
+				"buffer_size": 154,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/sass/_normalize.scss",
+			"settings":
+			{
+				"buffer_size": 7935,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/sass/_mixins.sass",
+			"settings":
+			{
+				"buffer_size": 429,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"last_filter": "install pa",
+		"selected_items":
+		[
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood",
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood/dist",
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood/dist/css",
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood/src",
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood/src/js",
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood/src/sass"
+	],
+	"file_history":
+	[
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood/src/sass/_normalize.scss",
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood/LICENSE",
+		"/Users/jikim/Documents/bsun/online/org/2016/08/ellicott-city-flood/dist/index.html",
+		"/Users/jikim/Documents/bsun/online/org/2016/08/template/dist/index.html",
+		"/private/var/folders/by/2wnsp1w10wg42rhs8k_sjmk5grbkq6/T/fz3temp-1/index.html",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/dist/css/cartodb.css",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/dist/js/min/Control.OSMGeocoder.js",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/dist/css/Control.OSMGeocoder.css",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/dollars-per-vote/dollars-per-vote.sublime-project",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/src/sass/style.sass",
+		"/Users/jikim/Documents/bsun/online/package.json",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/package.json",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/dist/js/app.js",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/npm-debug.log",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/dist/js/app.min.js",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/src/index.html",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/scripts/javascript.js",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/stylesheets/css/style.css",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/stylesheets/sass/_mixins.sass",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/stylesheets/sass/_variables.sass",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/stylesheets/sass/style.sass",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/index.html",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/index.jade",
+		"/Users/jikim/Documents/bsun/online/org/2016/04/md-shootings-near-you/src/index.jade",
+		"/Users/jikim/Documents/bsun/PASS-FOR-JIN-TEMP.html",
+		"/Users/jikim/Documents/bsun/online/--web-project-jade/package.json",
+		"/Users/jikim/Documents/bsun/online/md-shootings-near-you/stylesheets/style.css",
+		"/Users/jikim/Documents/bsun/online/workspace-test/index.jade",
+		"/Users/jikim/Documents/bsun/online/workspace-test/index.html",
+		"/Users/jikim/Documents/bsun/online/workspace-test/package.json",
+		"/Users/jikim/Documents/bsun/online/workspace-test/scripts/javascript.js",
+		"/Users/jikim/Documents/bsun/online/workspace-test/stylesheets/css/style.css",
+		"/Users/jikim/Documents/bsun/online/workspace-test/stylesheets/sass/_mixins.sass",
+		"/Users/jikim/Documents/bsun/online/workspace-test/stylesheets/sass/_variables.sass",
+		"/Users/jikim/Documents/bsun/online/workspace-test/stylesheets/sass/style.sass",
+		"/Users/jikim/Documents/bsun/online/workspace-test/stylesheets/style.css",
+		"/Users/jikim/Documents/bsun/online/test/stylesheets/sass/_mixins.sass",
+		"/Users/jikim/Documents/bsun/online/test/stylesheets/style.css",
+		"/Users/jikim/Documents/bsun/online/test/package.json",
+		"/Users/jikim/Documents/bsun/online/terminal-test/index.jade",
+		"/Users/jikim/package.json",
+		"/Users/jikim/node_modules/jade/jade.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"  ",
+			"PM\"\n,\"",
+			"},{\n \"",
+			"\n},{",
+			",\n{",
+			",\"\":\"\"",
+			"  ",
+			" p.m.:",
+			"  ",
+			"accentw",
+			"white",
+			"Check out some of the most popular crab houses in the Baltimore area.",
+			";\n",
+			"accentW",
+			"accentG",
+			"accentC",
+			"ccentB",
+			"accentC0",
+			"accentB0",
+			"accentBL0",
+			"margin",
+			"accentBW",
+			"accentBTextColor",
+			"accent",
+			"accentB",
+			"accent3",
+			"accent2",
+			"accent4",
+			"accent1",
+			"p ",
+			"display",
+			"#{title}",
+			"border-right: .3em solid $accent4",
+			"font-s",
+			"accent1",
+			"$accent2",
+			"white",
+			"color: white",
+			"oldBayBlue",
+			"lighten($oldBayBlue, 12)",
+			"$oldBayBlue",
+			"$base",
+			"base1",
+			"darken($oldBayBlue, 13)",
+			"		border-right: .4em solid darken($oldBayBlue, 13)\n		border-left: .4em solid darken($oldBayBlue, 13)",
+			"darken($oldBayBlue,",
+			"border-right: .4em solid darken($oldBayBlue, 10)",
+			"	border-right: .4em solid darken($oldBayBlue, 10)\n		border-left: .4em solid darken($oldBayBlue, 10)",
+			"border-right: .4em solid darken($oldBayBlue, 10)\n			border-left: .4em solid darken($oldBayBlue, 10)",
+			"order-right: .4em solid darken($oldBayBlue, 10)\n			border-left: .4em solid darken($oldBayBlue, 10)",
+			"border-top: .1em solid darken($oldBayBlue, 10)",
+			"border-right: .4em solid darken($oldBayBlue, 10)",
+			".1em solid darken($oldBayBlue, 10)",
+			"bottom: 5px",
+			"right: 5px",
+			"    ",
+			"county",
+			"dataproject",
+			"PROJ-NAME-HERE",
+			"api",
+			"width: 10",
+			"marker-width: 6;'+",
+			"marker-width: 9",
+			"marker-width: 6",
+			"How violent is your neighborhood",
+			"See shootings",
+			"How violent is your neighborhood",
+			"overlap: true",
+			"killedBool",
+			"shootingsCount",
+			"ismo",
+			"detectUserLocation",
+			"locate",
+			"locate ",
+			"detect",
+			"bounds",
+			"z-index",
+			"76.863829",
+			"39.107535",
+			"navigator",
+			"Trial date: 5/10/16",
+			"nero",
+			"76.583420",
+			"39.289156",
+			"link.datalink",
+			"bound",
+			"bounding",
+			"withinMile",
+			"md_nonfatal_shootings_2015",
+			"SELECT * FROM md_fatal_shootings_2015",
+			"SELECT * FROM md_nonfatal_shootings_2015",
+			"Election District\":1,\"Election Precinct\":1",
+			"zoom",
+			"mobileF",
+			"50,",
+			"50",
+			"javascript",
+			"datalink}scripts",
+			"stylesheets",
+			"../../../../../Documents/bsun/online/md-shootings-near-you",
+			"107.23",
+			"ftp",
+			"environment"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\t",
+			"/t",
+			"",
+			"\\t"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/index.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2199,
+								2199
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dist/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1522,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2228,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1697,
+								1692
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/includes/timeline.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 757,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17,
+								17
+							]
+						],
+						"settings":
+						{
+							"auto_name": "- var timelime = [{\"timestamp\":\"6:45:00 PM\",\"text\"",
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "src/js/javascript.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3462,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								613,
+								613
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/sass/style.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 928,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/sass/_variables.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/sass/_normalize.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7935,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/sass/_mixins.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								317,
+								317
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ellicott-city-flood.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 208.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

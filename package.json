@@ -1,7 +1,7 @@
 {
-  "name": "PROJ-NAME-HERE",
+  "name": "ellicott-city-flood",
   "version": "1.0.0",
-  "description": "PROJ-NAME-HERE",
+  "description": "ellicott-city-flood",
   "main": "index.js",
   "scripts": {
     "jade": "jade  -P -p src/index.jade < src/index.jade > dist/index.html",
@@ -28,19 +28,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jinkimdata/PROJ-NAME-HERE.git"
+    "url": "git+https://github.com/jinkimdata/ellicott-city-flood.git"
   },
-  "keywords": [],
+  "keywords": ["baltimore sun"],
   "author": "Jin Bae Kim",
   "license": "",
   "bugs": {
-    "url": "https://github.com/jinkimdata/PROJ-NAME-HERE/issues"
+    "url": "https://github.com/jinkimdata/ellicott-city-flood/issues"
   },
-  "homepage": "https://github.com/jinkimdata/PROJ-NAME-HERE#readme",
+  "homepage": "https://github.com/jinkimdata/ellicott-city-flood#readme",
   "devDependencies": {
     "browser-sync": "latest",
     "eslint": "latest",
     "imagemin": "latest",
+    "jade": "latest",
     "node-sass": "latest",
     "onchange": "latest",
     "parallelshell": "latest",

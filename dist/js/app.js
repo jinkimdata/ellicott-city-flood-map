@@ -2950,7 +2950,143 @@
 });
 
 var dataproject = {
-    init: function() {},
+    init: function() {
+        mapboxgl.accessToken = "pk.eyJ1IjoibmF0aW9uYWxwb3N0IiwiYSI6IjBkZWVjZjhjZjg0NzAwNmEwYzk5ZWViYmFlNDA5NjkzIn0.y73QXFnGF8_91sSDBWvgHg";
+        var map = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/nationalpost/cihpxfqzl002195lyrokri8u4",
+            center: [ -76.797988, 39.267544 ],
+            zoom: 7,
+            bearing: 0,
+            pitch: 45,
+            interactive: false
+        });
+        var chapters = {
+            slide0: {
+                bearing: 0,
+                center: [ -76.797988, 39.267544 ],
+                zoom: 15,
+                pitch: 15,
+                duration: 4e3
+            },
+            slide1: {
+                duration: 3500,
+                center: [ -76.797988, 39.267544 ],
+                bearing: 0,
+                zoom: 10,
+                pitch: 8
+            },
+            slide2: {
+                bearing: 90,
+                center: [ -76.797988, 39.267544 ],
+                zoom: 17,
+                speed: .6,
+                pitch: 5
+            },
+            slide3: {
+                bearing: 20,
+                center: [ -76.786928, 39.279917 ],
+                zoom: 15,
+                speed: .6,
+                duration: 3500
+            },
+            slide4: {
+                bearing: -45,
+                pitch: 15,
+                center: [ -76.79717, 39.268149 ],
+                zoom: 16
+            },
+            slide5: {
+                bearing: 40,
+                center: [ -76.794229, 39.267767 ],
+                zoom: 17.5,
+                duration: 2e3,
+                pitch: 60
+            },
+            slide6: {
+                bearing: 0,
+                center: [ -76.797319, 39.267396 ],
+                zoom: 18,
+                pitch: 15,
+                duration: 4e3
+            },
+            slide7: {
+                bearing: 40,
+                center: [ -76.794229, 39.267767 ],
+                zoom: 17.5,
+                duration: 2e3,
+                pitch: 60
+            },
+            slide8: {
+                bearing: -45,
+                pitch: 15,
+                center: [ -76.79717, 39.268149 ],
+                zoom: 16
+            },
+            slide9: {
+                bearing: 0,
+                center: [ -76.761404, 39.247031 ],
+                zoom: 16.5,
+                speed: .6,
+                duration: 4e3,
+                pitch: 60
+            },
+            slide10: {
+                bearing: 0,
+                center: [ -76.761404, 39.247031 ],
+                zoom: 16.5,
+                duration: 4e3,
+                pitch: 60
+            },
+            slide11: {
+                bearing: 40,
+                center: [ -76.868505, 39.252859 ],
+                speed: .6,
+                zoom: 16.5,
+                duration: 2e3,
+                pitch: 60
+            },
+            slide12: {
+                bearing: 20,
+                center: [ -76.794229, 39.267767 ],
+                zoom: 15.5,
+                speed: .6,
+                duration: 2e3,
+                pitch: 60
+            },
+            slide13: {
+                bearing: 0,
+                center: [ -76.797988, 39.267544 ],
+                zoom: 15,
+                pitch: 15,
+                speed: .6,
+                duration: 4e3
+            }
+        };
+        window.onscroll = function() {
+            var chapterNames = Object.keys(chapters);
+            for (var i = 0; i < chapterNames.length; i++) {
+                var chapterName = chapterNames[i];
+                if (isElementOnScreen(chapterName)) {
+                    setActiveChapter(chapterName);
+                    break;
+                }
+            }
+        };
+        var activeChapterName = "cover";
+        function setActiveChapter(chapterName) {
+            if (chapterName === activeChapterName) return;
+            map.flyTo(chapters[chapterName]);
+            document.getElementById(chapterName).setAttribute("class", "active");
+            document.getElementById(activeChapterName).setAttribute("class", "");
+            activeChapterName = chapterName;
+        }
+        function isElementOnScreen(id) {
+            var element = document.getElementById(id);
+            var bounds = element.getBoundingClientRect();
+            return bounds.top < window.innerHeight && bounds.bottom > 0;
+        }
+    },
     share: function() {
         $(".icon-twitter").on("click", function() {
             var tweet = "";
