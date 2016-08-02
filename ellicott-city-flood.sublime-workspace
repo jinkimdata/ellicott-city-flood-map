@@ -55,7 +55,7 @@
 			"file": "src/index.jade",
 			"settings":
 			{
-				"buffer_size": 4052,
+				"buffer_size": 4051,
 				"line_ending": "Unix"
 			}
 		},
@@ -429,15 +429,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4052,
+						"buffer_size": 4051,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1207,
-								1207
+								568,
+								568
 							]
 						],
 						"settings":
