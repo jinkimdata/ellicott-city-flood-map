@@ -63,7 +63,7 @@
 			"file": "dist/index.html",
 			"settings":
 			{
-				"buffer_size": 9806,
+				"buffer_size": 10278,
 				"line_ending": "Unix"
 			}
 		},
@@ -71,7 +71,7 @@
 			"file": "src/includes/timeline.jade",
 			"settings":
 			{
-				"buffer_size": 4356,
+				"buffer_size": 4746,
 				"line_ending": "Unix",
 				"name": "- var timelime = [{\"timestamp\":\"6:45:00 PM\",\"text\""
 			}
@@ -261,7 +261,7 @@
 	],
 	"find":
 	{
-		"height": 46.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -275,6 +275,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\n",
 			"\n ",
 			"target=\"_blank\"",
 			"\n ",
@@ -435,8 +436,8 @@
 						"selection":
 						[
 							[
-								633,
-								633
+								1207,
+								1207
 							]
 						],
 						"settings":
@@ -458,7 +459,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9806,
+						"buffer_size": 10278,
 						"regions":
 						{
 						},
@@ -489,15 +490,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4356,
+						"buffer_size": 4746,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4355,
-								4355
+								1467,
+								1467
 							]
 						],
 						"settings":
